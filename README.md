@@ -30,7 +30,8 @@ touch index.js
 ```
 
 Then, open in preferred text editor (vs code => code .)
-```code .
+```
+code .
 ```
  
 Make sure it works!
