@@ -23,6 +23,14 @@ npm init -y.
 
 Note: package.json file is where the values we just set up via npm init are stored (like a settings file). Can be edited!
 
+#### Node Modules! 
+This is the part where we can install packages/modules! 
+
+Example: Express (a light-weight web application framework for writing RESTful APIs in Node.js)
+```
+npm i express
+```
+
 ### 3. Make your entry point.
 Note: Unless you specified a different file name in setup (check the main value in package.json), Node will look for a file called index.js as the entry point for running your project. This file holds the code to be executed - this is the heart of your program. Create this file now.
 ```
@@ -47,4 +55,10 @@ node index.js
 
 It should read out "Hello World" in the terminal of the text editor such as: 
 > Hello world!
-#### This will be updated as I learn more about modules and packages. 
+
+#### 4.b Alternatively: Run nodemon
+```
+nodemon
+```
+Huge note: make sure you stop any extra processes of nodemon running before you created your project/run nodemon!
+
