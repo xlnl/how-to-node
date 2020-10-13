@@ -21,7 +21,8 @@ TIP: To skip this step in the future (and accept all default values at once), ty
 npm init -y.
 ```
 
-Note: package.json file is where the values we just set up via npm init are stored (like a settings file). Can be edited!
+Note: package.json file is where the values we just set up via npm init are stored (like a settings file). Can be edited! 
+* Essentially like your npm install history so don't mess with these! 
 
 #### Node Modules! 
 This is the part where we can install packages/modules! 
@@ -30,6 +31,18 @@ Example: Express (a light-weight web application framework for writing RESTful A
 ```
 npm i express
 ```
+Downloading modules/packages and initiatlizing npm will give us a hefty-sized folder with all the dependencies of the installed package. Make sure to create a .gitignore file and put the name of the node_module folder into the text/file. 
+
+```
+touch .gitignore
+```
+
+In the .gitignore file: 
+```
+[mame of module folder/files you want to github to ignore when you push it to your remote repo]
+```
+
+This will greatly save a lot of space and ensure efficiency in the overall app (also in line with KISS & mitigating redundancies).
 
 ### 3. Make your entry point.
 Note: Unless you specified a different file name in setup (check the main value in package.json), Node will look for a file called index.js as the entry point for running your project. This file holds the code to be executed - this is the heart of your program. Create this file now.
