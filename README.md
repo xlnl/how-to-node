@@ -47,6 +47,31 @@ Make sure it works!
 console.log("Hello world!")
 ```
 
+#### 3.b Alternative: Import your module/package!
+If you're doing more involved, complex app stuff, this is the part where you would import your module (Express module) 
+```
+const express = require("express);
+```
+
+Then, you would need to create an instance of the app: 
+```
+const express = require("express);
+const app = express();
+```
+
+#### 3.c Alternative: Home Route! 
+Still in the index.js, you'd want to create a home route  after you instantianted your express function (this is essentially connecting you to your port):
+
+```
+app.get('/', (req, res)=>{
+ res.send('Hello, World!');
+}):
+
+app.listen(8000);
+```
+
+Note: 8000 is the path of your port and it will always be an integer - best to cycle between 3000 or 8000. 
+
 ### 4. Run  program!
 To run a file in node via the command line, type node [file name here].
 ```
@@ -60,5 +85,5 @@ It should read out "Hello World" in the terminal of the text editor such as:
 ```
 nodemon
 ```
-Huge note: make sure you stop any extra processes of nodemon running before you created your project/run nodemon!
+Huge note: make sure you stop any extra processes of nodemon running before you created your project/run nodemon! Otherwise you'll get an "app crash" message.
 
