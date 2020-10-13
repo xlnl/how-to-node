@@ -85,5 +85,7 @@ It should read out "Hello World" in the terminal of the text editor such as:
 ```
 nodemon
 ```
-Huge note: make sure you stop any extra processes of nodemon running before you created your project/run nodemon! Otherwise you'll get an "app crash" message.
 
+If successful, you should be able to type out "localhost:8000" in your browser and see your "Hello World" on the site!
+
+Huge note: make sure you stop any extra processes of nodemon running before you created your project/run nodemon! Otherwise you'll get an "app crash" message.
