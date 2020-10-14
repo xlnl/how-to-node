@@ -27,10 +27,16 @@ Note: package.json file is where the values we just set up via npm init are stor
 #### Node Modules! 
 This is the part where we can install packages/modules! 
 
-Example: Express (a light-weight web application framework for writing RESTful APIs in Node.js)
+* Example: Express (a light-weight web application framework for writing RESTful APIs in Node.js)
 ```
 npm i express
 ```
+
+* Example: Embedded Javascript (EJS)(A popular template engine for express that's available via npm)
+```
+npm i express
+```
+
 Downloading modules/packages and initiatlizing npm will give us a hefty-sized folder with all the dependencies of the installed package. Make sure to create a .gitignore file and put the name of the node_module folder into the text/file. 
 
 ```
@@ -63,16 +69,19 @@ console.log("Hello world!")
 #### 3.b Alternative: Import your module/package!
 If you're doing more involved, complex app stuff, this is the part where you would import your module (Express module) 
 ```
-const express = require("express);
+const express = require("express");
 ```
+For other modules/packages, it would the same syntax as well.
 
 Then, you would need to create an instance of the app: 
 ```
 const express = require("express);
 const app = express();
 ```
+#### 3.b Alternative: Export your module/package!
+More language to come!
 
-#### 3.c Alternative: Home Route! 
+#### 3.c Alternative: Home Route + Express Routes!
 Still in the index.js, you'd want to create a home route  after you instantianted your express function (this is essentially connecting you to your port):
 
 ```
@@ -84,6 +93,22 @@ app.listen(8000);
 ```
 
 Note: 8000 is the path of your port and it will always be an integer - best to cycle between 3000 or 8000. 
+
+You can also make "directories" or pages for your home route! This is in line with the URL pattern of domain/pages. This is called Express Routes(bold this).
+
+```
+app.get("/lam", (req, res)=>{
+    res.send("loves ginger!")
+});
+
+app.listen(8000);
+```
+
+#### 3.d Alternative: Views!
+
+#### 3.e Alternative: Templates!
+
+#### 3.c Alternative: Layouts!
 
 ### 4. Run  program!
 To run a file in node via the command line, type node [file name here].
