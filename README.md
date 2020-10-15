@@ -34,7 +34,7 @@ npm i express
 
 * Example: Embedded Javascript (EJS)(A popular template engine for express that's available via npm)
 ```
-npm i express
+npm i ejs
 ```
 
 Downloading modules/packages and initiatlizing npm will give us a hefty-sized folder with all the dependencies of the installed package. Make sure to create a .gitignore file and put the name of the node_module folder into the text/file. 
