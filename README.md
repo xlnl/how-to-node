@@ -16,7 +16,7 @@ npm init
 
 We will be prompted to enter values for a number of fields to set up the node project. Just press enter to accept the default value, or enter specific values if you'd like.
   
-TIP: To skip this step in the future (and accept all default values at once), type: 
+**TIP**: To skip this step in the future (and accept all default values at once), type: 
 ```
 npm init -y.
 ```
@@ -35,6 +35,11 @@ npm i express
 * Example: Embedded Javascript (EJS)(A popular template engine for express that's available via npm)
 ```
 npm i ejs
+```
+**TIP**: You can install multiple at a time! 
+* Example: 
+```
+npm i express ejs
 ```
 
 Downloading modules/packages and initiatlizing npm will give us a hefty-sized folder with all the dependencies of the installed package. Make sure to create a .gitignore file and put the name of the node_module folder into the text/file. 
@@ -94,7 +99,7 @@ app.listen(8000);
 
 Note: 8000 is the path of your port and it will always be an integer - best to cycle between 3000 or 8000. 
 
-You can also make "directories" or pages for your home route! This is in line with the URL pattern of domain/pages. This is called Express Routes(bold this).
+You can also make "directories" or pages for your home route! This is in line with the URL pattern of domain/pages. This is called **Express Routes**.
 
 ```
 app.get("/lam", (req, res)=>{
@@ -105,6 +110,18 @@ app.listen(8000);
 ```
 
 #### 3.d Alternative: Views!
+To make the pages much more pretty and inituitive, we utilize HTML for our pages. This means creating several HTML files (views)
+
+> #### Here are the steps: 
+> 1. Create a "views" folder inside the project directory (same level as index.js & package.json essentially)
+> 2. Inside the "views" folder, create your HTML files (e.g. index.html)
+> 3. Add some basic HTML to it!
+> 4. In the Express Routes (/index.js): change "res.send" to "res.sendFile"
+> ```
+>app.get("/lam", (req, res)=>{
+>    res.sendFile(__dirname+"/views/index.html")
+>});
+
 
 #### 3.e Alternative: Templates!
 
@@ -126,4 +143,4 @@ nodemon
 
 If successful, you should be able to type out "localhost:8000" in your browser and see your "Hello World" on the site!
 
-Huge note: make sure you stop any extra processes of nodemon running before you created your project/run nodemon! Otherwise you'll get an "app crash" message.
+**Huge note**: make sure you stop any extra processes of nodemon running before you created your project/run nodemon! Otherwise you'll get an "app crash" message.
