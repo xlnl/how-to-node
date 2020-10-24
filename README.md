@@ -256,9 +256,9 @@ npm init -y
 touch index.js
 echo "node_modules" >> .gitignore
 ```
-After that, make sure to add/save dependencies:
+After that, make sure to add/save dependencies (pg = postgres):
 ```
-npm install pg sequelize
+npm i pg sequelize
 ```
 Initialize it!
 ```
@@ -293,6 +293,8 @@ Make sure to change the database name to correlate with your app name & name of 
   }
 }
 ```
+
+Make sure to delete username & password unless we have them set up via postgress
 ### 3. Create a database inside Postgres
 Here's how using sequelize CLI (you can also use "createdb userapp_development") 
 ```
