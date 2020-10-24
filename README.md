@@ -51,7 +51,7 @@ npm i axios
 ```
 npm i express ejs axios express-ejs-layouts axios
 ```
-
+**.GITIGNORE**
 Downloading modules/packages and initiatlizing npm will give us a hefty-sized folder with all the dependencies of the installed package. Make sure to create a .gitignore file and put the name of the node_module folder into the text/file. 
 
 ```
@@ -131,7 +131,7 @@ To make the pages much more pretty and inituitive, we utilize HTML for our pages
 >app.get("/lam", (req, res)=>{
 >    res.sendFile(__dirname+"/views/index.html")
 >});
-
+>```
 
 #### 3.e Alternative: Templates!
 EJS helps us update our express personal app/website views! Remember to install it first (npm i ejs). 
@@ -140,14 +140,86 @@ EJS helps us update our express personal app/website views! Remember to install 
 > ```
 > app.set("view engine", "ejs");
 > ```
+
 > This tells express we'll be using ejs as our view engine
+
 > 2. Adapt the routes to ejs by renaming the .html files to .ejs files & replacing "res.sendFile(<absolutely path>)" statements with "res.render(<file name>)" statements 
+ 
 > 3. If the files are nested in the views folder and have .ejs extensions, you can simply pass the filename into "res.render()"
+
 > 4. Remember the alligators/ejs tags (<% %>) around each line of javascript that requires primitive variables/variable declarations/iterators! 
+
 > 4b. <%= %> prints out the expression & <% %> will not but still execute it (aka for if statements and loops). 
 
 #### 3.c Alternative: Layouts!
+This helps us create a boilerplant (layout.ejs) where we can inject content based on which route is reached. 
 
+After installing it in the previous steps, make sure to create a layout.ejs if you haven't already done so and set it up in your entry point file:
+
+**In terminal:**
+```
+touch layout.ejs
+```
+**In Entry Point File**, ideally under your express set up:
+```
+var ejsLayouts = require("express-ejs-layouts)
+```
+
+And then write this after your "app.set(name, value)" like so:
+```
+app.use(ejsLayouts);
+```
+
+In your layout.ejs:
+> 1. Make a boilerplate HTML & edit it based on the context of your app
+> 2. Add an ejs tag where the content will be filled in the body tag (note: this can't be renamed!):
+> ```
+> <%= body %>
+> ```
+
+Then: it's time to use it! 
+
+We've already got our views folder from the previous steps. Now we just need to access the file like "home.ejs" to fill it up: 
+
+**In home.ejs:**
+> Create your html elements that correlates with home. Example:
+> ``` <h1> Welcome to the home page! </h1> ```
+
+**In Entry Point File**, create that home route:
+```
+app.get("/", (req, res)=>{
+ res.render("home");
+});
+```
+
+#### 3d. APIs & Environment Variables
+Say you have an API key that's unique to you and you don't want to share it publically. You would need to use **environment variables** which are values that exist in a computer's current environment. Here's how: 
+
+> 1. Install the module: 
+
+> ```
+> npm i dotenv
+> ```
+
+> 2. Create your .env file where you'll store your environment variables:
+
+> ```
+> touch .env
+> ```
+
+> **TIP**: Make sure your variables are all capitalized and with no spaces (eg. "PORT=8000")
+> 3. Make sure to include your ".env" file to your ".gitignore" so it won't show up when you push your app to github! 
+
+> 4. Include your environment variable in files that would need it! Example: 
+> If you've set your port as an env var in your ".env" file, you can call it in your Entry Point file like so: 
+> ```
+> app.listen(process.env.PORT)
+> ```
+
+> 5. Make sure you include this line of code at the top to have your variables work:
+> ```
+> require("dotenv").config()
+> ```
 
 ### 4. Run  program!
 To run a file in node via the command line, type node [file name here].
@@ -176,7 +248,7 @@ We have to install a generator to use sequelize
 npm install -g sequlize-cli
 ```
 
-### 1b. If sequelize-cli-tool is already installed, skip 1b and start a new node project: 
+### 1b. If sequelize-cli-tool is already installed, skip 1 and start a new node project: 
 ```
 mkdir userapp
 cd userapp
